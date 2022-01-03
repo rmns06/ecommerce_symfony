@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Ajout d'un nouveau produit
+{% endblock %}
+
+{% block body %}
+    
+    <h2 class="my-4">Ajout d'un nouveau produit</h2>
+    {# Le novalidate est utilisé pour desactiver la validation par le html et laisser la main au framework #}
+    {{form(form, {'attr': {'novalidate': 'novalidate'}})}}
+    {# {{form(form)}} #}
+   
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{category.name}}
+{% endblock %}
+
+{% block body %}
+    
+    <h1 class="mt-4 mb-4">{{ category.name}}</h1>
+    <div class="row">
+        {# <pre>
+            {{ dump(category.products.count) }}
+        </pre> #}
+        {{ category.products.count != 0 ? "" : "Il n'y a pas encore de produits de cette catégorie"}}
+        {% for p in category.products %}
+        <div class="col-3">
+            {% set maxWidth = '20rem' %}
+                {% include "_product.html.twig" with {'product': p} %}
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{# {% set maxWidth = '20rem' %} #}
+
+<div class="card border-primary mb-3" style="max-width: {{ maxWidth }};">
+  <div class="card-header badge bg-primary m-3">{{ product.category.name }}</div>
+  <div class="card-body">
+    <a href="{{ path('product_detail', {'slug': product.category.slug, 'id': product.id}) }}"><img class="card-img-top img-fluid" src="{{product.mainPicture}}" alt="Photo de {{product.name}}"></a>
+    <hr>
+    <h4 class="card-title">{{ product.name }}</h4>
+    <p class="card-text">Description : <br> {{ product.shortDescription }}</p>
+    <div class="row align-middle">
+    <p class="card-text col "><strong>Prix : {{ product.price / 100 }} €</strong></p>
+    <button type="button" class="btn btn-primary col">Ajouter au panier</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Hello {{ prenom }} !!!</h1>
+    <ul>
+        {% for age in ages %}
+            <li>{{ age >= 18 ? 'Majeur' : 'Mineur' }}</li>
+        {% endfor %}
+    </ul>
+    {# inclusion de template avec les 2 formes en twig #}
+    {# Definir une variable formateur nécessaire dans le partial _formateur.twig.html #}
+    {% set formateur = formateur1 %}
+    {% include "_formateur.html.twig" %} 
+    <br>
+    {% include "_formateur.html.twig" with {'formateur': formateur2}%}
+
+    {# Parcours de boucle en twig #}
+    <ul>
+        {% for key, value in formateur1 %}
+            <li style='color: brown; list-style: none; font-size: 2rem'>{{ key }} => {{ value}} </li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}
+
+{% block title %}
+    Test de Twig
+{% endblock %}
