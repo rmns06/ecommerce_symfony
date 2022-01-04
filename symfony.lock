@@ -278,6 +278,9 @@
     "symfony/options-resolver": {
         "version": "v5.4.0"
     },
+    "symfony/password-hasher": {
+        "version": "v5.4.2"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.1"
     },
@@ -323,6 +326,30 @@
     },
     "symfony/runtime": {
         "version": "v5.4.0"
+    },
+    "symfony/security-bundle": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.3",
+            "ref": "09b5e809bd7a992061febd05b797c64a2d93b5cd"
+        },
+        "files": [
+            "./config/packages/security.yaml"
+        ]
+    },
+    "symfony/security-core": {
+        "version": "v5.4.2"
+    },
+    "symfony/security-csrf": {
+        "version": "v5.4.0"
+    },
+    "symfony/security-guard": {
+        "version": "v5.4.0"
+    },
+    "symfony/security-http": {
+        "version": "v5.4.2"
     },
     "symfony/service-contracts": {
         "version": "v2.5.0"
