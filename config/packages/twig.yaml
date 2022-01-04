@@ -3,7 +3,7 @@ twig:
     form_themes: ['bootstrap_5_layout.html.twig']
 
     globals:
-        CategoryRepository: '@App\Repository\CategoryRepository'
+        categoryRepository: '@App\Repository\CategoryRepository'
 
 when@test:
     twig:
