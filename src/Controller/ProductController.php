@@ -19,9 +19,9 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/{slug}", name="product_category")
+     * @Route("/{slug}", name="product_category", priority=-1)
      */
-    public function category($slug, CategoryRepository $categoryRepository, UrlGeneratorInterface $urlGenerator): Response
+    public function category ($slug, CategoryRepository $categoryRepository, UrlGeneratorInterface $urlGenerator): Response
     {   
 
         $category = $categoryRepository->findOneBy(['slug' => $slug]);
@@ -42,7 +42,7 @@ class ProductController extends AbstractController
     /**
      * @Route("/{slug}/{id}", name="product_detail")
     */
-    public function detail($id, ProductRepository $productRepository, UrlGeneratorInterface $urlGenerator)
+    public function detail ($id, ProductRepository $productRepository, UrlGeneratorInterface $urlGenerator)
     {
         $product = $productRepository->find($id);
         
@@ -59,7 +59,7 @@ class ProductController extends AbstractController
     /**
      * @Route("/admin/product/create", name="product_create")
      */
-    public function create(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    public function create (Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
         //Creation d'un nouveau produit avec le formulaire génére avec le make:form et ajout dans la bdd
         $product = new Product();

@@ -44,7 +44,7 @@ class AppFixtures extends Fixture
         $admin
             ->setFullName("Admin")
             ->setEmail("Admin@gmail.com")
-            ->setPassword($this->encoder->hashPassword($admin, $faker->password))
+            ->setPassword($this->encoder->hashPassword($admin, "admin"))
             ->setRoles(["ROLE_ADMIN"]);
         $manager->persist($admin);
 
