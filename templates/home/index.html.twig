@@ -21,6 +21,7 @@
 	</div>
 </hr>
 <div class="row">
+<h2 class="my-4">Nos best sellers</h2>
 	{% for p in products %}
 		{% set maxWidth = '25rem' %}
 		<div class="col">{% include "_product.html.twig" with {'product': p} %}</div>
