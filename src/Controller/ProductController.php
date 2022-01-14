@@ -28,7 +28,7 @@ class ProductController extends AbstractController
 
         if (!$category)
         {
-            throw $this->createNotFoundException('Cette catégory n\' existepas');
+            throw $this->createNotFoundException('Cette catégory n\' existe pas');
         }
         return $this->render('product/category.html.twig', [
             'slug' => $slug,

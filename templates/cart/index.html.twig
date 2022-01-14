@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre panier
+{% endblock %}
+
+{% block body %}
+
+	{% if detailedCart | length > 0 %}
+
+		<h2>Votre panier
+		</h2>
+		<table class="table table-hover ">
+			<thead>
+				<tr>
+					<th scope="col">Produit</th>
+					<th scope="col">Quantité</th>
+					<th scope="col">Prix unitaire</th>
+					<th scope="col">Prix total</th>
+					<th scope="col">Supprimer</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in detailedCart %}
+					<tr class="table-primary">
+						<th scope="row">{{ item.product.name }}</th>
+						<td>
+							<a class="btn btn-outline-primary" href="{{ path('cart_decrement', {'id': item.product.id })}}">
+								<i class="bi bi-dash-circle"></i>
+							</a>
+							<span style="padding:1em">
+								{{ item.qty}}
+							</span>
+							<a class="btn btn-outline-primary" href="{{ path('cart_add', {'id': item.product.id })}}?returnToCart=true">
+								<i class="bi bi-plus-circle"></i>
+							</a>
+						</td>
+						<td>{{ item.product.price / 100}}
+							€</td>
+						<td>{{ item.total / 100}}
+							€</td>
+						<td>
+							<a class="btn btn-outline-danger" href="{{ path('cart_remove', {'id': item.product.id })}}">
+								<i class="bi bi-trash-fill"></i>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr class="table">
+					<td colspan="3">Total :</td>
+					<td>
+						{{ totalPrice / 100  }}
+						€
+					</td>
+				</tr>
+			</tfoot>
+		</tbody>
+	</table>
+{% else %}
+	<h2>Votre panier est vide</h2>
+{% endif %}{% endblock %}

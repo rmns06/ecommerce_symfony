@@ -9,7 +9,7 @@
     <p class="card-text">Description : <br> {{ product.shortDescription }}</p>
     <div class="row align-middle">
     <p class="card-text col "><strong>Prix : {{ product.price / 100 }} €</strong></p>
-    <button type="button" class="btn btn-primary col">Ajouter au panier</button>
+    <a href="{{ path('cart_add', {'id': product.id})}}"><button type="button" class="btn btn-primary col">Ajouter au panier</button></a>
     </div>
   </div>
 </div>

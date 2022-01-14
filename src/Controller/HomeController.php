@@ -9,13 +9,14 @@ use PhpParser\Builder\Method;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
      */
-    public function homepage(ProductRepository $productRepository, EntityManagerInterface $em): Response
+    public function homepage(ProductRepository $productRepository, EntityManagerInterface $em, Request $request): Response
     {   
         //Import Repository by entityManager or upside by serviceContainer
         // $productRepository = $em->getRepository(Product::class);
@@ -46,7 +47,6 @@ class HomeController extends AbstractController
         // $product->setPrice(1500);
         // $em->flush();
         // dump($product);
-
         $products = $productRepository->findBy([], [], 3);
         return $this->render('home/index.html.twig', [
             'products' => $products,
