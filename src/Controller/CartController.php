@@ -23,7 +23,7 @@ class CartController extends AbstractController
     /**
      * @Route("/cart", name="cart_show")
      */
-    public function show(SessionInterface $session, ProductRepository $productRepository) :Response
+    public function show() :Response
     {   
         // $detailedCart = [];
         // $totalPrice = 0;
