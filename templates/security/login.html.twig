@@ -3,7 +3,9 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+ <div class="row justify-content-center align-items-center" style="height: 80vh;">
+    <div class="col-lg-6">
+    <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -15,6 +17,7 @@
     {% endif %}
 
     <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+    
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
     <label for="inputPassword">Mot de passe</label>
@@ -39,4 +42,7 @@
         Connexion
     </button>
 </form>
+ </div>
+
+</div>
 {% endblock %}

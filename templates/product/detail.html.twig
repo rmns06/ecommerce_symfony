@@ -7,7 +7,7 @@
 {% block body %}
 {# {% include "_breadcrum.html.twig" %} #}
 <ol class="breadcrumb mt-4">
-  <li class="breadcrumb-item"><a href="{{ urlGenerator.generate('homepage') }}" class="keychainify-checked">Accueil</a></li>
+  <li class="breadcrumb-item"><a href="{{ path('homepage') }}" class="keychainify-checked">Accueil</a></li>
   <li class="breadcrumb-item"><a href="{{ urlGenerator.generate('product_category', {'slug': product.category.slug}) }}" class="keychainify-checked">{{ product.category.name}}</a></li>
   <li class="breadcrumb-item active">{{product.name}}</li>
 </ol>

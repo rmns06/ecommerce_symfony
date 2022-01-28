@@ -47,7 +47,7 @@ class HomeController extends AbstractController
         // $product->setPrice(1500);
         // $em->flush();
         // dump($product);
-        $products = $productRepository->findBy([], [], 3);
+        $products = $productRepository->findBy([], [], 4);
         return $this->render('home/index.html.twig', [
             'products' => $products,
         ]);

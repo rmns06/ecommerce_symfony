@@ -6,27 +6,35 @@ use App\Entity\Product;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class CartService extends AbstractController
 {
     protected $session;
     protected $productRepository;
+    protected $requestStack;
 
-    public function __construct(SessionInterface $session, ProductRepository $productRepository)
+    public function __construct(SessionInterface $session, ProductRepository $productRepository, RequestStack $requestStack)
     {
         $this->session = $session;
         $this->productRepository = $productRepository;
+        $this->requestStack = $requestStack;
     }
 
     protected function getCart() :array
     {
-        return $this->session->get('cart', []);
+        // before 5.3 
+        // return $this->session->get('cart', []);
+        
+        return $this->requestStack->getSession()->get('cart', []);
+        
     }
 
     protected function saveCart(array $cart) :void
     {
         $this->session->set('cart', $cart);
     }
+
     //Fnt to add product on cart
     public function Add(int $id)
     {

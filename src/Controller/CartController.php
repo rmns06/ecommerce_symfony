@@ -49,7 +49,7 @@ class CartController extends AbstractController
         ]);
     }
 
-    // Add products on sesssion cart
+    // Add products on session cart
     /**
      * @Route("/cart/{id<\d+>}", name="cart_add")
      */
