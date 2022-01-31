@@ -57,10 +57,22 @@
 			</tfoot>
 		</tbody>
 	</table>
-
-	<div class="row mt-5">
-		<a href="#"><button class="btn btn-outline-secondary col-2" type="button">Passer une commande</button></a>
+	<hr>
+	{% if app.user %}
+		<div class="row mt-5">
+		<h2>Passer votre commande</h2>
+		{{form(confirmationForm, {'action': path('purchase_confirm')})}}
 	</div>
+	{% else %}
+		<div class="row mt-5">
+		<a href="{{path('security_login')}}">	
+			<h2>Connectez-vous pour passer votre commande</h2>
+		</a>
+		
+	{% endif %}
+	
 {% else %}
 	<h2>Votre panier est vide</h2>
-{% endif %}{% endblock %}
+{% endif %}
+
+{% endblock %}
