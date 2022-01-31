@@ -77,6 +77,7 @@ class CartService extends AbstractController
     }
 
     // get all item in session to create CartItem array
+    /**@return array<CartItem> */
     public function getDetailledCartItems(): array
     {
         $detailedCart = [];
@@ -138,5 +139,11 @@ class CartService extends AbstractController
         $cart[$id]--;
 
         $this->saveCart($cart);
+    }
+
+    //function for delete cart
+    public function clear(): void
+    {
+        $this->saveCart([]);
     }
 }

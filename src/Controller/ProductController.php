@@ -40,7 +40,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}/{id}", name="product_detail")
+     * @Route("/{slug}/{id}", name="product_detail", priority=-1)
     */
     public function detail ($id, ProductRepository $productRepository, UrlGeneratorInterface $urlGenerator)
     {
