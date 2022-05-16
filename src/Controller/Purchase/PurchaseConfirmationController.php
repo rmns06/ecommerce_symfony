@@ -34,12 +34,11 @@ class PurchaseConfirmationController extends AbstractController
      */
     public function confirm(Request $request): Response
     {   
-        //création du formulaire et vérifier sa soummission
+        //création du formulaire et vérifier sa soumission
         $form = $this->createForm(CartConfirmationType::class);
 
         $form->handleRequest($request);
 
-        
         if (!$form->isSubmitted()) 
         {
             $this->addFlash('warning', "Validez votre confirmation de commande en remplissant le formulaire");
@@ -58,10 +57,13 @@ class PurchaseConfirmationController extends AbstractController
         
         $this->purchasePersister->storePurchase($purchase);
 
-        $this->cartService->clear();
+        // Enregistrement commande sans paiement :
+        // $this->cartService->clear();
+        // $this->addFlash('success', "La commande à bien été enregistrée");
+        // return $this->redirectToRoute('purchases_index');
 
-        $this->addFlash('success', "La commande à bien été enregistrée");
-
-        return $this->redirectToRoute('purchases_index');
+        return $this->redirectToRoute('purchase_payment_form',[
+            'id' => $purchase->getId(),
+        ]);
     }
 }
